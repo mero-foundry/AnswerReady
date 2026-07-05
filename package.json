@@ -1,0 +1,38 @@
+{
+  "name": "answerready",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:build\" \"npm:dev:server\"",
+    "dev:build": "node scripts/build.mjs --watch",
+    "dev:server": "node --watch server/index.js",
+    "build": "tsc -b && node scripts/build.mjs",
+    "ci": "npm run lint && npm run build && npm run test:e2e && npm audit --audit-level=moderate",
+    "lint": "oxlint",
+    "test:e2e": "playwright test",
+    "preview": "npm run build && npm start",
+    "start": "NODE_ENV=production node server/index.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "express": "^5.2.1",
+    "lucide-react": "^1.23.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "concurrently": "^10.0.3",
+    "esbuild": "^0.28.1",
+    "oxlint": "^1.71.0",
+    "typescript": "~6.0.2"
+  }
+}
