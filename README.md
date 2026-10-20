@@ -50,3 +50,7 @@ npm start
 ```
 
 The Express server serves the built frontend from `dist` and exposes the scanner API.
+
+## License
+
+Licensed under the [MIT License](LICENSE).
